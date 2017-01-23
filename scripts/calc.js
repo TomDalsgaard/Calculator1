@@ -71,6 +71,19 @@ function calcClick(btn) {
             case "C":
                 ClearAll();
                 break;
+            case "Ce":
+                calcInput = "0";
+                break;
+            case "bs":
+                if (calcInput.length > 0)
+                    calcInput = calcInput.substr(0, calcInput.length);
+                if (calcInput.length == 0)
+                    calcInput = "0";
+                break;
+            case "s":
+                //if(calcInput.startsWith("-",0))
+                calcInput = -parseFloat(calcInput);
+                break;
             default:
                 break;
         }
