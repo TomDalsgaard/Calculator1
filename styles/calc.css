@@ -1,9 +1,9 @@
 .calcInput {
-    width: 16em;
+    width: 14em;
     height: 2em;
     text-align: right;
     /*text-decoration: black;*/
-    
+    font-size: 1em;
 }
 
 .libtn

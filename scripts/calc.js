@@ -1,6 +1,7 @@
 
 var calcInput = "0";
 var prevcalcInput = "0";
+var calcFunc = "+";
 
 var calcInputArray = [
     {
@@ -13,29 +14,68 @@ var calcInputField = document.getElementById("calcOutput");
 
 //calcInputField.preventDefault();
 
-function calcClick(btn){
+function ClearAll() {
+    calcInput = "0";
+    prevcalcInput = calcInput;
+    calcFunc = "+";
+}
+
+function calcClick(btn) {
     //btn.preventDefault();
     //calcInputField.preventDefault();
-    try{
-    
-    switch(btn) {
-        case "1":
-        case "2":
-        case "3":
-        case "4":
-        case "5":
-        case "6":
-        case "7":
-        case "8":
-        case "9":
-        case "0":
-            calcInput+=btn;
-            break;
-        default:
-            break;
+    try {
+
+        switch (btn) {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+            case "0":
+                calcInput += btn;
+                break;
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+                prevcalcInput = calcInput;
+                calcInput = "0";
+                calcFunc = btn;
+                break;
+            case "=":
+                switch (calcFunc) {
+                    case "+":
+                        calcInput = parseFloat(calcInput) + parseFloat(prevcalcInput);
+                        //prevcalcInput = "0";
+                        break;
+                    case "-":
+                        var tempInp = calcInput;
+                        calcInput = prevcalcInput;
+                        prevcalcInput = tempInp;
+                        calcInput = parseFloat(calcInput) - parseFloat(prevcalcInput);
+                        break;
+                    case "*":
+                        calcInput = parseFloat(calcInput) * parseFloat(prevcalcInput);
+                        break;
+                    case "/":
+                        calcInput = parseFloat(prevcalcInput) / parseFloat(calcInput);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case "C":
+                ClearAll();
+                break;
+            default:
+                break;
         }
     }
-    catch(err) {
+    catch (err) {
         document.getElementById("demo").innerHTML = err.message;
     }
 
