@@ -1,7 +1,14 @@
+.calcInput {
+    width: 16em;
+    height: 2em;
+    text-align: right;
+    /*text-decoration: black;*/
+    
+}
+
 .libtn
 {
     background-color: sandybrown;
-
 }
 
 ul {
@@ -10,6 +17,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    width: 14em;
 }
 
 li {
@@ -20,6 +28,9 @@ li button {
     display: inline-block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 4px;
+    margin: 2px 2px;
     text-decoration: none;
+    height: 50px;
+    width: 50px;
 }

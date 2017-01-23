@@ -11,5 +11,5 @@ var calcInputField = document.getElementById("calcOutput");
 
 function calcClick(btn){
     calcInput+="1";
-    calcInputField.innerHTML = calcInput;
+    calcInputField.value = calcInput;
 }
