@@ -1,6 +1,7 @@
 
 var calcInput = "0";
 var prevcalcInput = "0";
+var calcOutput = "0";
 var calcFunc = "+";
 
 var calcInputArray = [
@@ -17,6 +18,7 @@ var calcInputField = document.getElementById("calcOutput");
 function ClearAll() {
     calcInput = "0";
     prevcalcInput = calcInput;
+    calcOutput = "0";
     calcFunc = "+";
 }
 
@@ -75,9 +77,9 @@ function calcClick(btn) {
                 calcInput = "0";
                 break;
             case "bs":
-                if (calcInput.length > 0)
-                    calcInput = calcInput.substr(0, calcInput.length);
-                if (calcInput.length == 0)
+                if (calcInput.toString().length > 0)
+                    calcInput = calcInput.toString().substr(0, calcInput.toString().length - 1);
+                if (calcInput.toString().length == 0)
                     calcInput = "0";
                 break;
             case "s":
